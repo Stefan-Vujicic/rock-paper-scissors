@@ -7,6 +7,110 @@
     <script src="javascript.js"></script>
 </head>
 <body>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div id="results"></div>
+    <script>
+        
+    const buttonRock=document.querySelector('#rock');
+    buttonRock.addEventListener('click', ()=>{
+        
+        playRound('rock', getComputerChoice());
+        if(humanScore===5){
+            let result=document.createElement('p');
+            result.textContent='Game over, you won';
+            results.appendChild(result);
+        }else if(computerScore===5){
+        let result=document.createElement('p');
+        result.textContent='Game over. you lose';
+        results.appendChild(result);
+        }
+    });
+
+    const buttonPaper=document.querySelector('#paper');
+    buttonPaper.addEventListener('click', ()=>{
+        playRound('paper', getComputerChoice());
+        if(humanScore===5){
+            let result=document.createElement('p');
+            result.textContent='Game over, you won';
+            results.appendChild(result);
+        }else if(computerScore===5){
+        let result=document.createElement('p');
+        result.textContent='Game over. you lose';
+        results.appendChild(result);
+        }
+    });
+
+    const buttonScissors=document.querySelector('#scissors');
+    buttonScissors.addEventListener('click', ()=>{
+        playRound('scissors', getComputerChoice());
+        if(humanScore===5){
+            let result=document.createElement('p');
+            result.textContent='Game over, you won';
+            results.appendChild(result);
+        }else if(computerScore===5){
+        let result=document.createElement('p');
+        result.textContent='Game over. you lose';
+        results.appendChild(result);
+        }
+    });
+    const results=document.querySelector('#results');
+    function playRound(humanChoice, computerChoice){
+        console.log("Computer chose: " + computerChoice);
+        if(humanChoice=='rock'&&computerChoice=='paper'){
+            let result=document.createElement('p');
+            computerScore++;
+            result.textContent='You lose! Paper beats rock, Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+            
+        }else if(humanChoice=='scissors'&& computerChoice=='paper'){
+            let result=document.createElement('p');
+            humanScore++;
+            result.textContent='You win! Scissors beat paper, Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+            
+        }else if(humanChoice=='paper'&& computerChoice=='paper'){
+            let result=document.createElement('p');
+            result.textContent='Draw! Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+        }else if(humanChoice=='rock'&& computerChoice=='scissors'){
+            let result=document.createElement('p');
+            humanScore++;
+            result.textContent='You win! Rock beats scissors. Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+           
+        }else if(humanChoice=='paper'&& computerChoice=='scissors'){
+            let result=document.createElement('p');
+            computerScore++;
+            result.textContent='You lose! Scissors beat paper. Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+            
+        }else if(humanChoice=='scissors'&& computerChoice=='scissors'){
+            let result=document.createElement('p');
+            result.textContent='Draw! Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+        }else if(humanChoice=='rock'&& computerChoice=='rock'){
+            let result=document.createElement('p');
+            result.textContent='Draw! Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+        }else if(humanChoice=='paper'&& computerChoice=='rock'){
+            let result=document.createElement('p');
+            humanScore++;
+            result.textContent='You win! Paper beats rock. Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+            
+        }else if(humanChoice=='scissors'&& computerChoice=='rock'){
+            let result=document.createElement('p');
+            computerScore++;
+            result.textContent='You lose! Rock beats scissors. Score: '+humanScore+', '+computerScore;
+            results.appendChild(result);
+            
+        } 
+     
+    }
+        
     
+    </script>
 </body>
 </html>
